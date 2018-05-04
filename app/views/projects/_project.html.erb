@@ -1,0 +1,5 @@
+<li>
+  <span class="project_number"><%= project.project_number %></span>
+  <span class= "project" ><%= link_to project.name , project %></span>
+  <span class= "project" > | <%= link_to 'delete' , project ,method: :delete, data: { confirm: "Sure?"} %></span>
+</li>
