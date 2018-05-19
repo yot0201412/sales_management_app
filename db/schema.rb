@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_03_174904) do
+ActiveRecord::Schema.define(version: 2018_05_10_120340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expenses", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "class_name"
+    t.string "name"
+    t.date "billing_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "unit"
+    t.float "unit_price"
+    t.boolean "deleted"
+    t.date "deleted_at"
+    t.index ["project_id"], name: "index_expenses_on_project_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -22,4 +36,5 @@ ActiveRecord::Schema.define(version: 2018_05_03_174904) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "expenses", "projects"
 end

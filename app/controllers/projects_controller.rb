@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @expenses = @project.expenses.active
   end
 
   def index
@@ -48,5 +49,10 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name,
           :project_number)
+    end
+
+    def correct_project
+      @project = Project.find(params[:id])
+      redirect_to(root_url) unless current_user?(@project)
     end
 end
