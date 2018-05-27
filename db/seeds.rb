@@ -30,3 +30,22 @@ Project.create!(name:  "Example Project2",
                deleted: false)
   end
 end
+
+6.times do |n|
+  name  = "CRA"
+  class_name = "ResearchPromotion"
+  a = n + 1
+  billing_at = Time.current.since(a.month)
+
+  projects = Project.take(2)
+
+  projects.each do |project|
+    project.expenses.create!(name:  name,
+               class_name: class_name,
+               billing_at: billing_at,
+               unit: 1,
+               unit_price: 150000,
+               project: project,
+               deleted: false)
+  end
+end

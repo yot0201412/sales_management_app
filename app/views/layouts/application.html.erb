@@ -6,11 +6,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
   </head>
 
-  <body>
+  <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |message_type, message| %>

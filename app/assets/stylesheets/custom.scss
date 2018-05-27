@@ -88,3 +88,10 @@ p {
   margin-top: 45px;
   @include box_sizing;
 }
+
+#pivot {
+
+  .pvtable{
+    border-collapse: collapse;
+  }
+}

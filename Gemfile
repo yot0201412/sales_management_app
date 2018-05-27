@@ -31,6 +31,10 @@ gem 'bootstrap-sass', '3.3.7'
 # scaffold確認用に必要
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+#js rails データキャスト用
+gem 'gon'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

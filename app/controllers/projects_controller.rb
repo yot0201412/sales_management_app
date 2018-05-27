@@ -45,6 +45,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def sheet
+    @project = Project.find(params[:id])
+    gon.expenses = @project.expenses.active.map{|p| p.attributes}.to_a
+  end
+
   private
     def project_params
       params.require(:project).permit(:name,
